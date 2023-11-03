@@ -1,12 +1,23 @@
 pipeline{
 
     agent any
+
+    tools{
+        maven "maven"
+    }
+
+    environment{
+        VERSION_NAME="1.34"
+    }
+
+
     stages{
 
         stage("compile"){
             
             steps{
                 sh 'javac Test.java'
+                sh 'echo "${VERSION_NAME}"'
             }
         }
 
